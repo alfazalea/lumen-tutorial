@@ -37,9 +37,22 @@ class ExampleController extends Controller
      * @return string
      * @throws \Exception
      */
-    public function getUserById($id,Request $request)
+    public function getUserById($id, Request $request)
     {
-        return 'ID :'.$id.' Your name is : ' . $request->name . ' and your age : ' . $request->age;
+        return 'ID :' . $id . ' Your name is : ' . $request->name . ' and your age : ' . $request->age;
     }
+
+    /**
+     * @param Request $request
+     * @return string
+     * @throws \Exception
+     */
+    public function calculate(Request $request)
+    {
+        $total = $request->qty * $request->price;
+
+        return 'Total amount = ' . $total;
+    }
+
 }
 

@@ -24,3 +24,5 @@ $router->get('/user/{name}','UserController@getMyName');
 $router->get('/randomcode','ExampleController@getRandomCode');
 
 $router->get('/userby/{id}','ExampleController@getUserById');
+
+$router->post('/calculate','ExampleController@calculate');
