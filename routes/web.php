@@ -18,3 +18,9 @@ $router->get('/', function () use ($router) {
 });
 
 $router->get('/example', 'ExampleController@index');
+
+$router->get('/user/{name}','UserController@getMyName');
+
+$router->get('/randomcode','ExampleController@getRandomCode');
+
+$router->get('/userby/{id}','ExampleController@getUserById');
