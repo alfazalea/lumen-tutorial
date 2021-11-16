@@ -13,6 +13,8 @@
 |
 */
 
+use Illuminate\Http\Response;
+
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
@@ -26,3 +28,27 @@ $router->get('/randomcode','ExampleController@getRandomCode');
 $router->get('/userby/{id}','ExampleController@getUserById');
 
 $router->post('/calculate','ExampleController@calculate');
+
+$router->get('/response',function (){
+    return (new Response(['name'=>'alfazalea'], 200))
+        ->header('Content-Type', 'application/json');
+});
+
+$router->get('/user',function (){
+    return response()->json(
+        [
+            'id'=>1,
+            'name' => 'alfazalea',
+            'age' => '20'
+        ]
+    );
+});
+
+
+$router->get('/download',function (){
+    return response()->download($pathToFile);
+});
+
+$router->get('/redirect',function (){
+    return redirect('home/dashboard');
+});
